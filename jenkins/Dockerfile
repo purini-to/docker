@@ -11,15 +11,18 @@ RUN yum install -y wget java-1.7.0-openjdk
 
 # [Git]
 RUN yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker -y
-RUN wget -O - https://git-core.googlecode.com/files/git-1.8.5.2.tar.gz | tar zxvf -
-RUN cd git-1.8.5.2 ;\
-    ./configure --prefix=/usr/local/ ;\
-    make prefix=/usr/local all ;\
-    make prefix=/usr/local install
+RUN wget -O - https://git-core.googlecode.com/files/git-1.8.5.2.tar.gz | tar zxvf - && \
+    cd git-1.8.5.2 && \
+    ./configure --prefix=/usr/local/ && \
+    make prefix=/usr/local all && \
+    make prefix=/usr/local install && \
+    cd / && \
+    rm -Rf git-1.8.5.2 && \
+    ln -s /usr/local/bin/git /usr/sbin/git
 
 # [Jenkins]
-RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo ;\
-    rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key ;\
+RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo && \
+    rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key && \
     yum -y install jenkins
 
 # 【環境設定】 ---------------------------------------------------------------

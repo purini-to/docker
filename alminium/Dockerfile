@@ -21,19 +21,9 @@ ADD config/init.mysql /alminium/config/init.mysql
 ADD config/redmine-plugins.lst /alminium/config/redmine-plugins.lst
 RUN cd alminium && \
     env USER=root ENABLE_JENKINS=N SSL=N ALM_HOSTNAME=127.0.0.1 SMTPSET=N USE_DISABLE_SECURITY=y bash ./smelt
-RUN mkdir /var/opt/alminium_home && \
-    mv /var/opt/alminium /var/opt/alminium_home/repository && \
-    ln -s /var/opt/alminium_home/repository /var/opt/alminium && \
-    mv /opt/alminium/files /var/opt/alminium_home/uploadFiles && \
-    ln -s /var/opt/alminium_home/uploadFiles /opt/alminium/files && \
-    mv /var/lib/mysql /var/opt/alminium_home/mysql && \
-    ln -s /var/opt/alminium_home/mysql /var/lib/mysql && \
-    chown apache:apache -Rf /var/opt/alminium /var/opt/alminium_home /opt/alminium/files && \
-    chown apache:apache -Rf /var/opt/alminium_home /opt/alminium/files && \
-    chown mysql:mysql -Rf /var/opt/alminium_home/mysql /var/lib/mysql
 
 # 必要なポートを外部に公開
-EXPOSE 80 22 443 25 110
+EXPOSE 80
 
 # 実行用のシェルスクリプトをコピー
 ADD run.sh /usr/local/bin/run.sh

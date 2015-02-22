@@ -3,10 +3,9 @@ FROM centos:centos6
 MAINTAINER h.urainkyo
 
 # 【インストール】 ---------------------------------------------------------------
-RUN yum install -y wget
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-RUN yum install mysql mysql-devel mysql-server mysql-utilities --enablerepo=remi -y
+RUN yum install mysql-server --enablerepo=remi -y
 
 # 【環境設定】 ---------------------------------------------------------------
 # [ローカライズ]
@@ -18,7 +17,7 @@ ADD my.cnf /etc/my.cnf
  
 # パスワードなしrootログインを許可(これがないとmysqld_safeでエラーになる)
 RUN service mysqld start ;\
-  sleep 5s ;\
+  sleep 10s ;\
   mysql -e "GRANT ALL ON *.* to 'root'@'%'; FLUSH PRIVILEGES"
  
 # ポート番号 3306 を外部に公開

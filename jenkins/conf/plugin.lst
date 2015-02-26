@@ -1,0 +1,8 @@
+http://updates.jenkins-ci.org/latest/scm-api.hpi
+http://updates.jenkins-ci.org/latest/git-client.hpi
+http://updates.jenkins-ci.org/latest/git.hpi
+http://updates.jenkins-ci.org/latest/ansicolor.hpi
+http://updates.jenkins-ci.org/latest/postbuild-task.hpi
+http://updates.jenkins-ci.org/latest/ssh.hpi
+http://updates.jenkins-ci.org/latest/jobConfigHistory.hpi
+http://updates.jenkins-ci.org/latest/simple-theme-plugin.hpi

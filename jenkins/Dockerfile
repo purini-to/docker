@@ -40,6 +40,7 @@ EXPOSE 8080
 # 実行用のシェルスクリプトをコピー
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
+ADD conf/plugin.lst /plugin.lst
 
 # 引数なしの実行時にスクリプトを起動
 CMD ["/usr/local/bin/run.sh"]

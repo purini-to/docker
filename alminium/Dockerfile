@@ -21,6 +21,9 @@ ADD config/init.mysql /alminium/config/init.mysql
 ADD config/redmine-plugins.lst /alminium/config/redmine-plugins.lst
 RUN cd alminium && \
     env USER=root ENABLE_JENKINS=N SSL=N ALM_HOSTNAME=127.0.0.1 SMTPSET=N USE_DISABLE_SECURITY=y bash ./smelt
+RUN service mysqld start && \
+    sleep 10s && \
+    mysqldump -u alminium -palminium alminium > /alm_db_dump.sql
 
 # 必要なポートを外部に公開
 EXPOSE 80

@@ -25,6 +25,9 @@ RUN ls -lt /var/lib/mongo
 #     mv /var/lib/mongo /var/mongodb_home && \
 #     ln -s /var/mongodb_home /var/lib/mongo && \
 #     chown mongod:mongod -Rf /var/mongodb_home /var/lib/mongo
+RUN service mongod start && \
+    sleep 10s && \
+    ls -lt /var/lib/mongo
 
 # ポート番号 27017 を外部に公開
 EXPOSE 27017

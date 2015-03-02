@@ -26,5 +26,8 @@ EXPOSE 3306
 # 実行用のシェルスクリプトをコピー
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
+
+VOLUME ["/var/lib/mysql"]
+
 # 引数なしの実行時にスクリプトを起動
 CMD ["/usr/local/bin/run.sh"]

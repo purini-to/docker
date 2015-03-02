@@ -42,5 +42,7 @@ ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
 ADD conf/plugin.lst /plugin.lst
 
+ADD conf/org.codefirst.SimpleThemeDecorator.xml /org.codefirst.SimpleThemeDecorator.xml
+
 # 引数なしの実行時にスクリプトを起動
 CMD ["/usr/local/bin/run.sh"]

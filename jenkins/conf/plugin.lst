@@ -6,3 +6,5 @@ http://updates.jenkins-ci.org/latest/postbuild-task.hpi
 http://updates.jenkins-ci.org/latest/ssh.hpi
 http://updates.jenkins-ci.org/latest/jobConfigHistory.hpi
 http://updates.jenkins-ci.org/latest/simple-theme-plugin.hpi
+http://updates.jenkins-ci.org/latest/publish-over-ssh.hpi
+http://updates.jenkins-ci.org/latest/custom-job-icon.hpi

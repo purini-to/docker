@@ -19,15 +19,6 @@ RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock
 # [MongoDB]
 # 設定ファイルを配置
 ADD mongod.conf /etc/mongod.conf
-RUN ls -lt /var/lib/mongo
-# RUN service mongod start && \
-#     sleep 10s && \
-#     mv /var/lib/mongo /var/mongodb_home && \
-#     ln -s /var/mongodb_home /var/lib/mongo && \
-#     chown mongod:mongod -Rf /var/mongodb_home /var/lib/mongo
-RUN service mongod start && \
-    sleep 10s && \
-    ls -lt /var/lib/mongo
 
 # ポート番号 27017 を外部に公開
 EXPOSE 27017
@@ -35,6 +26,8 @@ EXPOSE 27017
 # 実行用のシェルスクリプトをコピー
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
+
+VOLUME ["/var/lib/mongo"]
 
 # 引数なしの実行時にスクリプトを起動
 CMD ["/usr/local/bin/run.sh"]

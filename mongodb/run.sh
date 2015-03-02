@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # mongodbのインストールディレクトリ
-mongodbDir="/var/lib/mongodb"
+# mongodbDir="/var/lib/mongo"
 # オリジナルのmongodbディレクトリ
-mongodbOrigin="/var/mongodb_home"
+# mongodbOrigin="/var/mongo_home"
 
-if [ -z "$(ls -A $mongodbDir)" ]
-then
-        echo "ボリュームが存在しないため、mongodbの初期化を行います"
-        mv /var/mongodb_home/* /var/lib/mongodb
-        chown mongo:mongo -Rf $mongodbDir
-else
-        echo "マウントされたmongodbを使用します"
-fi
+# if [ ! -d $mongodbDir/journal ]
+# then
+#        echo "ボリュームが存在しないため、mongodbの初期化を行います"
+#         mv $mongodbOrigin/* $mongodbDir
+#        chown mongod:mongod -Rf $mongodbDir
+# else
+#         echo "マウントされたmongodbを使用します"
+# fi
 
 service mongod start
 echo "---- 起動しました ----"

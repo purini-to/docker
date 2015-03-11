@@ -31,3 +31,11 @@ redmine_local_avatars,master,https://github.com/luckval/redmine_local_avatars.gi
 redmine_git_branch_hook,master,https://github.com/mikoto20000/redmine_git_branch_hook.git
 # advanced_roadmapはbacklogsと競合するためどちらかを選択
 #advanced_roadmap,advanced_roadmap,https://ociotec.com/redmine/attachments/download/155/advanced_roadmap.0.5.1.tar.gz
+redmine_absolute_dates,master,https://github.com/suer/redmine_absolute_dates.git
+#redmine_issue_templates,master,https://github.com/arkhitech/redmine_issue_templates.git
+redmine_issues_summary_graph,master,https://github.com/suer/redmine_issues_summary_graph.git
+redmine_webhook,master,https://github.com/suer/redmine_webhook.git
+redmine_work_time,master,https://github.com/tkusukawa/redmine_work_time.git
+redmine_issue_checklist,master,https://github.com/Undev/redmine_issue_checklist.git
+#redmine_monitoring_controlling,master,http://github.com/alexmonteiro/Redmine-Monitoring-Controlling.git
+#redmine_vividtone_my_page_blocks,master,https://github.com/vividtone/redmine_vividtone_my_page_blocks.git

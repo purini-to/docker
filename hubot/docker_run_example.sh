@@ -11,4 +11,4 @@ REDIS_DIR=$BASE_DIR/redis
 
 mkdir -m 777 -p $REDIS_DIR 2> /dev/null
 
-docker run -i -d -p $PORT:8080 --link devhub:devhub -t urainkyo/hubot devhub
+docker run -i -d -p $PORT:8080 -v $REDIS_DIR:/var/lib/redis --link devhub:devhub -t urainkyo/hubot devhub

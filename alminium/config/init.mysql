@@ -93,7 +93,7 @@ UPDATE roles SET roles.permissions=concat(roles.permissions,'- :reset_sprint
 /*********************************************************************
  * Redmineの初期設定
  ********************************************************************/
-REPLACE INTO settings(name,value,updated_on) VALUES ('ui_theme','railsgun',current_date); 
+REPLACE INTO settings(name,value,updated_on) VALUES ('ui_theme','farend_fancy',current_date); 
 REPLACE INTO settings(name,value,updated_on) VALUES ('app_title','Dockermine',current_date);
 REPLACE INTO settings(name,value,updated_on) VALUES ('default_language','ja',current_date);
 REPLACE INTO settings(name,value,updated_on) VALUES ('gravatar_enabled',1,current_date);

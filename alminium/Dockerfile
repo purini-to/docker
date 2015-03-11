@@ -21,6 +21,15 @@ ADD config/init.mysql /alminium/config/init.mysql
 ADD config/redmine-plugins.lst /alminium/config/redmine-plugins.lst
 RUN cd alminium && \
     env USER=root ENABLE_JENKINS=N SSL=N ALM_HOSTNAME=127.0.0.1 SMTPSET=N USE_DISABLE_SECURITY=y bash ./smelt
+RUN cd /opt/alminium/plugins && \
+    service mysqld start && \
+    git clone https://github.com/arkhitech/redmine_issue_templates && \
+    sed -ri "s/gem \"simplecov\"/gem \"simplecov\", \"~> 0.6\"/g" redmine_issue_templates/Gemfile && \
+    sed -ri "s/gem \"simplecov-rcov\"/gem \"simplecov-rcov\", \">= 0\"/g" redmine_issue_templates/Gemfile && \
+    cd ../ && \
+    bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+RUN cd /opt/alminium && \
+    git clone https://github.com/farend/redmine_theme_farend_fancy public/themes/farend_fancy
 RUN service mysqld start && \
     sleep 10s && \
     mysqldump -u alminium -palminium alminium > /alm_db_dump.sql

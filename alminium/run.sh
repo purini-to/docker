@@ -12,9 +12,11 @@ SQL?~A??~H~]?~\~_?~L~V?~B~R?~L?~A~D?~A??~A~Y"
         service mysqld start
         sleep 5s
         mysql < /alminium/config/createdb.sql
+        cd /opt/alminium
         bundle exec rake db:migrate RAILS_ENV=production
         bundle exec rake redmine:plugins:migrate RAILS_ENV=production
         mysql alminium < /alm_db_dump.sql
+        cd /
 else
         echo "?~C~^?~B??~C??~C~H?~A~U?~B~L?~A~_MySQL?~B~R使?~T??~A~W?~A??~A~Y"
         service mysqld start

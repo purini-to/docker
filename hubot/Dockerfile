@@ -27,9 +27,14 @@ USER hubot
 RUN yo hubot --owner="User <user@example.com>" --name="Hubot" --description="Nameless" --adapter=devhub
 RUN npm install -S hubot-schedule && \
     sed -ri "2i \"hubot-schedule\"," external-scripts.json
+RUN npm install -S hubot-redmine-notifier && \
+    sed -ri "2i \"hubot-redmine-notifier\"," external-scripts.json
+RUN npm install -S hubot-jenkins-notifier && \
+    sed -ri "2i \"hubot-jenkins-notifier\"," external-scripts.json
 
 USER root
 WORKDIR /
+ADD redis.conf /etc/redis.conf
 # ポート番号 8080 を外部に公開
 EXPOSE 8080
 

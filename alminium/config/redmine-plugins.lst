@@ -39,3 +39,4 @@ redmine_work_time,master,https://github.com/tkusukawa/redmine_work_time.git
 redmine_issue_checklist,master,https://github.com/Undev/redmine_issue_checklist.git
 #redmine_monitoring_controlling,master,http://github.com/alexmonteiro/Redmine-Monitoring-Controlling.git
 #redmine_vividtone_my_page_blocks,master,https://github.com/vividtone/redmine_vividtone_my_page_blocks.git
+redmine_arch_decisions,master,https://github.com/ruxkor/redmine_arch_decisions.git

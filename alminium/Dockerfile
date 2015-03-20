@@ -26,7 +26,10 @@ RUN cd /opt/alminium/plugins && \
     git clone https://github.com/arkhitech/redmine_issue_templates && \
     sed -ri "s/gem \"simplecov\"/gem \"simplecov\", \"~> 0.6\"/g" redmine_issue_templates/Gemfile && \
     sed -ri "s/gem \"simplecov-rcov\"/gem \"simplecov-rcov\", \">= 0\"/g" redmine_issue_templates/Gemfile && \
+    git clone https://github.com/fernandokosh/redmine_time_tracker && \
+    sed -ri "s/gem 'timecop'/gem 'timecop', '~> 0.3.5'/g" redmine_time_tracker/Gemfile && \
     cd ../ && \
+    bundle install && \
     bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 RUN cd /opt/alminium && \
     git clone https://github.com/farend/redmine_theme_farend_fancy public/themes/farend_fancy
